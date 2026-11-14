@@ -23,6 +23,7 @@ import AnalyticsOutlinedIcon from "@mui/icons-material/AnalyticsOutlined";
 import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import "./ResumeAnalyzer.css";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function ResumeAnalyzer() {
   const [file, setFile] = useState(null);
@@ -69,7 +70,7 @@ export default function ResumeAnalyzer() {
       setAnalysis("");
 
       const response = await axios.post(
-        "http://127.0.0.1:8000/analyze-resume",
+        `${API_URL}/analyze-resume`,
         formData
       );
 
